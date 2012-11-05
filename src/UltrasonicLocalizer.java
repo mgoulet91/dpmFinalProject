@@ -13,7 +13,7 @@ public class UltrasonicLocalizer implements TimerListener{
 	
 	// fields
 	public enum LocalizationType {FALLING_EDGE, RISING_EDGE};
-	private final double THETA_CORRECTION_CONSTANT = 18;
+	private final double THETA_CORRECTION_CONSTANT = 15;
 	private boolean usLocalizerComplete;
 	private boolean usLocalizerRunning;
 	private double angleA, angleB, offsetTheta;
