@@ -18,7 +18,7 @@ public class claw implements TimerListener{
 		 this.current = current;
 		 
 	 }
-	
+	//random comment
 	 public void timedOut(){
 		 clawControl(current,choice);
 	 }
