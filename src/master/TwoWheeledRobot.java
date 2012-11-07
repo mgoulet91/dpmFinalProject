@@ -9,8 +9,6 @@ import lejos.nxt.NXTRegulatedMotor;
  * the robot's displacement and heading, and setting the robot's
  * forward and rotation speeds.
  * 
- * @author Patrick Diez
- * @author Stephane Beniak - 260324952
  * 
  * @see Odometer
  * @see Navigation
