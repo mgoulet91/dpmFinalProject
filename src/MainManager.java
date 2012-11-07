@@ -17,11 +17,14 @@ public class MainManager {
 		UltrasonicDataCollector ultrasonicDataCollector;
 		UltrasonicLocalizer ultrasonicLocalizer;
 		MotorController motorController;
-		Timer odometerTimer, usTimer;
+		Timer odometerTimer, controllerTimer;
 		LightSensor lightSensor;
+		Controller controller;
 	
+		//instantiate odometer and its timer
 		odometer = new Odometer();	
 		odometerTimer = new Timer(50, odometer);
+		
 		
 		// instantiate ultrasonicDataCollecter object
 		ultrasonicDataCollector = new UltrasonicDataCollector(new UltrasonicSensor(SensorPort.S1));
@@ -35,10 +38,14 @@ public class MainManager {
 		// instantiate UltrasonicLocalizer object
 		ultrasonicLocalizer = new UltrasonicLocalizer(motorController, odometer, ultrasonicDataCollector);
 		
-		// instantiate LightLocalizer object
-		usTimer = new Timer (500, ultrasonicLocalizer);
+		//instantiate Controller object
+		controller = new Controller(ultrasonicLocalizer, odometer, ultrasonicDataCollector, motorController, lightSensor);
 		
-		usTimer.start();
+		//instantiate controller timer
+		controllerTimer = new Timer(50, controller);
+		
+		//start timers
+		controllerTimer.start();
 		odometerTimer.start();
 		
 		// exit if escape is pressed
