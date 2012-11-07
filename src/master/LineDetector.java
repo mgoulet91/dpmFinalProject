@@ -8,8 +8,6 @@ import lejos.nxt.SensorPort;
  * Line detector, which constantly polls the light sensors to detect line crosses.
  * When a line has been crossed, the grid snapper is notified and behaves accordingly.
  * 
- * @author Severin "Sparky" Smith
- * @author Stephane Beniak - 260324952
  * 
  * @see GridSnapper
  * @see LCDInfo
