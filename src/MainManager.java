@@ -1,15 +1,46 @@
 
+
 import lejos.nxt.Button;
 import lejos.nxt.LightSensor;
 import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.UltrasonicSensor;
-//import lejos.nxt.comm.RConsole;
+
 import lejos.util.Timer;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+
+import lejos.nxt.*;
+import lejos.nxt.comm.Bluetooth;
+import lejos.nxt.comm.NXTCommConnector;
+import lejos.nxt.comm.NXTConnection;
+import lejos.nxt.comm.RS485;
+
 
 public class MainManager {
+	
+	 // ------ Inter-Brick Communication --------\\
+	 public static DataInputStream input;
+	 public static DataOutputStream output;
+	 static NXTCommConnector connector;
+	 public static NXTConnection connection;
+	 static int [] modes = {NXTConnection.PACKET, NXTConnection.RAW}; 
+	 
+	 public static double topUSDist = 13; 
 
 	public static void main(String[] args) {
+		
+
+		 connector = Bluetooth.getConnector();
+		  connection = connector.connect("Alpha", modes[0]);
+		  
+		  try {
+		   input = connection.openDataInputStream();
+		   output = connection.openDataOutputStream();
+		  }catch (Exception e){}
+
+		
+		
 		
 		// object declaration
 	
@@ -27,11 +58,11 @@ public class MainManager {
 		
 		
 		// instantiate ultrasonicDataCollecter object
-		ultrasonicDataCollector = new UltrasonicDataCollector(new UltrasonicSensor(SensorPort.S1));
+		ultrasonicDataCollector = new UltrasonicDataCollector(new UltrasonicSensor(SensorPort.S4));
 		
 		// instantiate lightDataCollector object
 		
-		lightSensor = new LightSensor(SensorPort.S2);
+		lightSensor = new LightSensor(SensorPort.S3);
 		// instantiate MotorController object
 		motorController = new MotorController(Motor.A, Motor.B, lightSensor, odometer);
 		

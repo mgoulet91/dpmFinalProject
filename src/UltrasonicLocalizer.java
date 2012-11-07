@@ -26,7 +26,7 @@ public class UltrasonicLocalizer implements TimerListener{
 		this.odometer = odometer;
 		this.ultrasonicDataCollector = ultrasonicDataCollector;
 		
-		usLocalizerComplete = false;
+		usLocalizerComplete = true;
 		usLocalizerRunning = false;
 		modeLock = new Object();
 		

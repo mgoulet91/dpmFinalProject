@@ -57,6 +57,19 @@ public class Controller implements TimerListener {
 		case 1: 
 			setUsLocalizerMode(true);
 			break;
+//		case 2:
+//			setClawMode(true);
+//		setUSLocalizerMode(false);
+//			break;
+//		case 3: 
+//			initiateClaw;
+//			break;
+//		case 4:
+//			placeBeacon;
+//			break;
+//		case 5:
+//			returnHome;
+//			break;
 		default:
 			setUsLocalizerMode(false);
 			return;
@@ -74,7 +87,7 @@ public class Controller implements TimerListener {
 			// if the ultrasonic localizer is complete but not running, it is resting, so switch it on
 			else if(ultrasonicLocalizer.getUsLocalizerComplete() && !ultrasonicLocalizer.getUsLocalizerRunning()) {
 				ultrasonicLocalizer.setUsLocalizerComplete(false);
-				
+			
 				ultrasonicLocalizerTimer.start();
 			}	
 			// the process has been completed, switch out of localizer mode, stop the timer and put localizer into rest
