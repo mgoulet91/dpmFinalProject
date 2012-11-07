@@ -9,8 +9,6 @@ import lejos.robotics.navigation.Navigator;
  * LS localization then runs, and accurately positions the robot at the origin,
  * pointing North, and resets the odometer to this position.
  * 
- * @author Stephane Beniak - 260324952
- * @author Salahuddin Masjedi, Intakhab Alam Zeeshan
  * 
  * @see USPoller
  * @see LineDetector
