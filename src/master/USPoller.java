@@ -6,7 +6,6 @@ import lejos.nxt.UltrasonicSensor;
  * Wrapper class for the ultrasonic sensors, which adds a distance
  * filter, and improves the ping/wait routine.
  * 
- * @author Stephane Beniak - 260324952
  * 
  * @see BlockFinder
  * @see LCDInfo
